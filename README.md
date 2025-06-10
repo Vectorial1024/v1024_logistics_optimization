@@ -1,5 +1,5 @@
 # Logistics Optimization
-Various adjustments to improve station trader efficiency in X4 Foundations
+Various adjustments to improve trader efficiency in X4 Foundations
 
 (links etc)
 
