@@ -18,7 +18,7 @@ The changes made by this mod can be summarised into several "bundled modules":
 
 Each such module will have its own README section below.
 
-With this mod, perhaps you no longer need to use the custom trading scripts (e.g. TaterTrader, the Mules, etc.).
+With this mod, perhaps you have less need for custom trading scripts (e.g. TaterTrader, the Mules, etc.).
 
 ------
 
