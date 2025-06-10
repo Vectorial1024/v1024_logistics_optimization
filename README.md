@@ -1,7 +1,10 @@
 # Logistics Optimization
 Various adjustments to improve trader efficiency in X4 Foundations
 
-(links etc)
+- Our GitHub repo: https://github.com/Vectorial1024/v1024_logistics_optimization
+- Our EgoSoft Forums link: (WIP)
+- Our Steam Workshop link: https://steamcommunity.com/sharedfiles/filedetails/?id=3496466928
+- Our Nexus Mods link: (WIP)
 
 > Effective and efficient logistics; that's how simple it is!
 
