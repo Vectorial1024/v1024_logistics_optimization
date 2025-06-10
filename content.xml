@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content name="V1024 - Logistics Optimization" author="Vectorial1024" version="100" save="0" description="Various adjustments to improve trader efficiency.">
+  <!-- "Extra" language entries as implicitly required by X4. This is quite different from what I've seen in XR. -->
+  <text language="7" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="33" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="34" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="39" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="42" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="44" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="48" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="49" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="55" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="81" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="82" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="86" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+  <text language="88" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
+</content>
