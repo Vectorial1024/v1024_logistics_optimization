@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content name="V1024 - Logistics Optimization" author="Vectorial1024" version="100" save="0" description="Various adjustments to improve trader efficiency.">
+<content id="ws_3496466928" name="V1024 - Logistics Optimization" author="Vectorial1024" version="100" save="0" description="Various adjustments to improve trader efficiency." date="2025-06-10" sync="false" lastupdate="1749540646">
   <!-- "Extra" language entries as implicitly required by X4. This is quite different from what I've seen in XR. -->
   <text language="7" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
   <text language="33" name="V1024 - Logistics Optimization" description="Various adjustments to improve trader efficiency." author="Vectorial1024"/>
