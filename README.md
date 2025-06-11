@@ -24,6 +24,20 @@ Each such module will have its own README section below.
 
 With this mod, perhaps you have less need for custom trading scripts (e.g. TaterTrader, the Mules, etc.).
 
+## Motivation
+This mod is a spiritual successor of Civilian Fleets, a 1.0-era mod that was eventually adapted into the base game as of the 7.0 update.
+
+Following the dissolution of Civilian Fleets, the deprecated fleets of old were reorganized to serve several new trade stations.
+However, it was noticed that station-based traders (especially trading-station traders) are behaving... not as expected.
+They are consistently making trade deals that are apparently unoptimal.
+
+This causes larger-scale logistics problems.
+
+While there are other custom trading scripts to help with these logistics problems, they are often tedious to configure and manage
+(e.g. usually exists as separate fleets, causing cluttering). It would be best if the vanilla one just "works", so these tedium may vanish.
+
+It was eventually discovered/determined that the vanilla station trading logic can be improved, which motivated the creation of this mod.
+
 ------
 
 ## Faster Trade Matching
