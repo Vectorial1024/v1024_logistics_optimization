@@ -32,4 +32,42 @@
     </replace>
 
     <!-- SECTION END Faster Trade Matching -->
+
+    <!-- SECTION START Trader Diversion -->
+
+    <!-- Divert some traders to try importing first. -->
+    <!-- This happens only once per trade search. -->
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/label[@name='sell']" pos="before">
+        <do_if value="not $hasDivertedImporting?" chance="20" comment="Check whether we have done this before">
+            <!-- Haven't done this diversion before; small chance to do diversion -->
+            <!-- Jump to ware imports -->
+            <set_value name="$hasDivertedImporting" exact="true" comment="Set and raise the flag" />
+            <resume label="buy" />
+        </do_if>
+    </add>
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/run_script" pos="before">
+        <!-- Interestingly, there is only 1 run_script tag in the entire script... -->
+        <!-- This is before the "long sleep" after "failed to trade: no trade found" -->
+        <do_if value="@$hasDivertedImporting">
+            <!-- Actually, we did not try exporting. Let's get back to there! -->
+            <set_value name="$hasDivertedImporting" exact="false" comment="Lower the flag but still keep it to prevent inf-loop" />
+            <set_value name="$jumpSleep" comment="Simple flag to indicate next code section should be 'sleep'" />
+            <resume label="start" />
+        </do_if>
+    </add>
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/label[@name='buy']" pos="before">
+        <do_if value="$jumpSleep?">
+            <!-- We diverted to importing, then returned to exporting, and then we are still here. -->
+            <!-- This means "no trades found"; go to sleep!-->
+            <remove_value name="$jumpSleep" />
+            <resume label="sleep" />
+        </do_if>
+    </add>
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$usedshortage?']" pos="after">
+        <!-- This is after the import script finished checking for trades (including "shortage trading"), but no trade found. -->
+        <!-- The script then declares "no trade found". -->
+        <label name="sleep" />
+    </add>
+
+    <!-- SECTION END Trader Diversion -->
 </diff>
