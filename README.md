@@ -19,7 +19,7 @@ This mod modifies the vanilla trading scripts to improve trader efficiency, and 
 
 The changes made by this mod can be summarised into several "bundled modules":
 - Faster Trade Matching: station traders idle less when searching/matching trade offers
-- Trader Diversion: divert some traders to try ware importing
+- Counter Trend Trading: some station traders reprioritize their work to stabilize station production
 - (more WIP...)
 
 Each such module will have its own README section below.
