@@ -33,10 +33,14 @@
 
     <!-- SECTION END Faster Trade Matching -->
 
-    <!-- SECTION START Trader Diversion -->
+    <!-- SECTION START Counter Trend Trading -->
 
-    <!-- Divert some traders to try importing first. -->
+    <!-- Divert some traders to try counter-trend trading, which means the following: -->
+    <!-- If the trend is to export wares (default state), then counter it by doing import first. -->
+    <!-- If the trend is to handle shortages ("shortage" state), then counter it by sticking to regular exporting. -->
     <!-- This happens only once per trade search. -->
+
+    <!-- Default state: try importing first -->
     <add sel="/aiscript[@name='trade.find.commander']/attention/actions/label[@name='sell']" pos="before">
         <do_if value="not $hasDivertedImporting?" chance="20" comment="Check whether we have done this before">
             <!-- Haven't done this diversion before; small chance to do diversion -->
@@ -66,5 +70,14 @@
         </do_if>
     </add>
 
-    <!-- SECTION END Trader Diversion -->
+    <!-- Shortage state: try exporting first, to keep the cash flowing -->
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='not $skipshortage?']" pos="before">
+        <do_if value="not $skipshortage?" chance="20" comment="Check whether we have done this before">
+            <!-- Haven't done this diversion before; small chance to do diversion -->
+            <!-- Don't handle shortages -->
+            <set_value name="$skipshortage" comment="Conveniently set the flag to prevent shortage handling" />
+        </do_if>
+    </add>
+
+    <!-- SECTION END Counter Trend Trading -->
 </diff>
