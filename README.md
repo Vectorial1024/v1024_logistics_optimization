@@ -19,6 +19,7 @@ This mod modifies the vanilla trading scripts to improve trader efficiency, and 
 
 The changes made by this mod can be summarised into several "bundled modules":
 - Faster Trade Matching: station traders idle less when searching/matching trade offers
+- Trader Diversion: divert some traders to try ware importing
 - (more WIP...)
 
 Each such module will have its own README section below.
@@ -54,4 +55,32 @@ The concern is that if the ware list is long and the sector coverage is wide (e.
 
 As such, this mod reduces the idling time of station traders.
 
+### Expected Performance Impact
 In theory, reducing idling time may momentarily decrease performance (aka "cause lag spikes") when station traders are finding trades.
+
+## Counter Trend Trading
+
+Station traders now have a small chance to engage in so-called "counter-trend" trading (elaborated in Technical Info below).
+
+This counter-trend trading occurs only once per trade search. (Note: "no trades found" failure does not end the search!)
+
+This works alongside the "prioritize shortage" vanilla behavior.
+
+### Technical Information
+The relevant parts of the vanilla station trader logic is roughly as follows:
+- Station traders wait for their turn to find trades
+- Check whether there is a shortage; if exists, stop and handle it (added since 7.0)
+- Check whether some wares can be exported; if exists, stop and handle it
+- Check whether some wares can be imported; if exists, stop and handle it
+
+It should be noted that station traders follow this procedure very rigidly, leading to the following behavior (assume no outside help):
+- Station is producing normally: traders ignore the ingredients, leading to eventual shortage, which may stop production
+- Station ran out of ingredients: traders ignore the products, leading to reduced cash, which may actually prevent resumption
+
+These behaviors result in stations often swinging wildly between "overworked" and "frozen", with each state being difficult to recover from.
+This then destabilizes the supply chain even when resources are obviously available.
+
+By having some (not all) station traders prioritize counter-trend trading, station production can be greatly stabilized.
+
+### Expected Performance Impact
+No performance impact expected since this is only a reordering of inevitable events.
