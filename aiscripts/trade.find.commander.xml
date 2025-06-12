@@ -42,7 +42,7 @@
 
     <!-- Default state: try importing first -->
     <add sel="/aiscript[@name='trade.find.commander']/attention/actions/label[@name='sell']" pos="before">
-        <do_if value="(not $doneCounterTrend?) and (not $hasDivertedImporting?)" chance="20" comment="Check whether we have done this before">
+        <do_if value="(not $doneCounterTrend?) and (not $hasDivertedImporting?)" chance="20" comment="Check whether we have done this before and may trigger">
             <!-- Haven't done counter-trend before; small chance to do counter-trend -->
             <!-- Jump to ware imports -->
             <set_value name="$doneCounterTrend" />
@@ -72,11 +72,13 @@
     </add>
 
     <!-- Shortage state: try exporting first, to keep the cash flowing -->
-    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='not $skipshortage?']" pos="before">
-        <do_if value="(not $doneCounterTrend?) and (not $skipshortage?)" chance="20" comment="Check whether we have done this before">
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='not $skipshortage?']">
+        <do_if value="(not $doneCounterTrend?) and ($resources_shortage.count or $resources_critical.count)" chance="20" comment="Check whether we have done this before and may trigger">
             <!-- Haven't done counter-trend before; small chance to do counter-trend -->
             <!-- Don't handle shortages -->
             <set_value name="$doneCounterTrend" />
+            <set_value name="$resources_shortage" exact="[]" />
+            <set_value name="$resources_critical" exact="[]" />
             <set_value name="$skipshortage" comment="Conveniently set the flag to prevent shortage handling" />
         </do_if>
     </add>
