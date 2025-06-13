@@ -58,6 +58,8 @@ As such, this mod reduces the idling time of station traders.
 ### Expected Performance Impact
 In theory, reducing idling time may momentarily decrease performance (aka "cause lag spikes") when station traders are finding trades.
 
+------
+
 ## Counter Trend Trading
 Station traders now have a small chance to engage in so-called "counter-trend" trading (elaborated in Technical Info below).
 
