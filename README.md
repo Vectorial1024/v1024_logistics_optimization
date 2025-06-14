@@ -78,10 +78,10 @@ It should be noted that station traders follow this procedure very rigidly, lead
 - Station is producing normally: traders ignore the ingredients, leading to eventual shortage, which may stop production
 - Station ran out of ingredients: traders ignore the products, leading to reduced cash, which may actually prevent resumption
 
-These behaviors result in stations often swinging wildly between "overworked" and "frozen", with each state being difficult to recover from.
+These behaviors result in stations often swinging wildly between "overworked" and "frozen", with each state being difficult to autonomously recover from.
 This then destabilizes the supply chain even when resources are obviously available.
 
-By having some (not all) station traders prioritize counter-trend trading, station production can be greatly stabilized.
+By having some (not all) station traders prioritize counter-trend trading, these swings should happen less, so station production can be greatly stabilized.
 
 ### Expected Performance Impact
 No performance impact expected since this is only a reordering of inevitable events.
