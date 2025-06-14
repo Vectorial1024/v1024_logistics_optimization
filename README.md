@@ -13,7 +13,7 @@ Various adjustments to improve trader efficiency in X4 Foundations
 ------
 
 ## Quick Info
-TL;DR: no player action needed!
+TL;DR: no player action needed! Also perfectly save-compatible!
 
 This mod modifies the vanilla trading scripts to improve trader efficiency, and so allows logistics to work better.
 
