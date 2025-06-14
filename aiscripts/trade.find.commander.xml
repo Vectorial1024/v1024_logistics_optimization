@@ -87,7 +87,7 @@
 
     <!-- SECTION START Fully Loaded -->
 
-    <!-- Make traders dislike trade deals that does not use the full cargo limit. -->
+    <!-- Make mid-large traders dislike trade deals that does not use the full cargo limit. -->
     <!-- This has a tiebreaking power between a juicy but small deal vs a bland but large deal: -->
     <!-- Prefer the large one, it keep things going. -->
 
