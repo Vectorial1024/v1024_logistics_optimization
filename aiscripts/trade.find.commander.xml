@@ -98,7 +98,9 @@
         <set_value name="$maxCarryAmount" exact="this.assignedcontrolled.cargo.{$buyoffer_local.ware}.max" />
         <!-- maxCarryAmount shows the max that can be loaded onto a ship; if tradeAmount = maxCarryAmount then we have a full load, and it is good. -->
         <do_if value="$maxCarryAmount gt 0" comment="$maxCarryAmount can be 0 if ship is considering impossible cargo; e.g. container ship considering ores">
-            <set_value name="$loctradevalue" exact="$loctradevalue * ($tradeAmount * 1.0 / $maxCarryAmount)" comment="Discourage non-full-load trades" />
+            <do_if value="not this.ship.isclass.[class.ship_xs, class.ship_s]" comment="Small ships don't need full loads">
+                <set_value name="$loctradevalue" exact="$loctradevalue * ($tradeAmount * 1.0 / $maxCarryAmount)" comment="Discourage non-full-load trades" />
+            </do_if>
         </do_if>
         <remove_value name="$tradeAmount" comment="Out-of-scope variable removal" />
         <remove_value name="$maxCarryAmount" comment="Out-of-scope variable removal" />
@@ -111,7 +113,9 @@
         <set_value name="$maxCarryAmount" exact="this.assignedcontrolled.cargo.{$selloffer_local.ware}.max" />
         <!-- maxCarryAmount shows the max that can be loaded onto a ship; if tradeAmount = maxCarryAmount then we have a full load, and it is good. -->
         <do_if value="$maxCarryAmount gt 0" comment="$maxCarryAmount can be 0 if ship is considering impossible cargo; e.g. container ship considering ores">
-            <set_value name="$loctradevalue" exact="$loctradevalue * ($tradeAmount * 1.0 / $maxCarryAmount)" comment="Discourage non-full-load trades" />
+            <do_if value="not this.ship.isclass.[class.ship_xs, class.ship_s]" comment="Small ships don't need full loads">
+                <set_value name="$loctradevalue" exact="$loctradevalue * ($tradeAmount * 1.0 / $maxCarryAmount)" comment="Discourage non-full-load trades" />
+            </do_if>
         </do_if>
         <remove_value name="$tradeAmount" comment="Out-of-scope variable removal" />
         <remove_value name="$maxCarryAmount" comment="Out-of-scope variable removal" />
