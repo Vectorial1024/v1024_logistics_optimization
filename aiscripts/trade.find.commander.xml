@@ -84,4 +84,38 @@
     </add>
 
     <!-- SECTION END Counter Trend Trading -->
+
+    <!-- SECTION START Fully Loaded -->
+
+    <!-- Make traders dislike trade deals that does not use the full cargo limit. -->
+    <!-- This has a tiebreaking power between a juicy but small deal vs a bland but large deal: -->
+    <!-- Prefer the large one, it keep things going. -->
+
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all/do_all/do_for_each/do_if[2]" pos="before">
+        <!-- Station is exporting wares -->
+        <!-- This should be right after setting the tradevalue but before any checking can begin -->
+        <set_value name="$tradeAmount" exact="[$buyoffer_local.offeramount.{this.assignedcontrolled}, this.assignedcontrolled.cargo.{$buyoffer_local.ware}.free].min" />
+        <set_value name="$maxCarryAmount" exact="this.assignedcontrolled.cargo.{$buyoffer_local.ware}.max" />
+        <!-- maxCarryAmount shows the max that can be loaded onto a ship; if tradeAmount = maxCarryAmount then we have a full load, and it is good. -->
+        <do_if value="$maxCarryAmount gt 0" comment="$maxCarryAmount can be 0 if ship is considering impossible cargo; e.g. container ship considering ores">
+            <set_value name="$loctradevalue" exact="$loctradevalue * ($tradeAmount * 1.0 / $maxCarryAmount)" comment="Discourage non-full-load trades" />
+        </do_if>
+        <remove_value name="$tradeAmount" comment="Out-of-scope variable removal" />
+        <remove_value name="$maxCarryAmount" comment="Out-of-scope variable removal" />
+    </add>
+
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$buyoffers.count gt 0']/do_all/do_all/do_for_each/do_if[2]" pos="before">
+        <!-- Station is importing wares -->
+        <!-- This should be right after setting the tradevalue but before any checking can begin -->
+        <set_value name="$tradeAmount" exact="[$selloffer_local.offeramount.{this.assignedcontrolled}, this.assignedcontrolled.cargo.{$selloffer_local.ware}.free].min" />
+        <set_value name="$maxCarryAmount" exact="this.assignedcontrolled.cargo.{$selloffer_local.ware}.max" />
+        <!-- maxCarryAmount shows the max that can be loaded onto a ship; if tradeAmount = maxCarryAmount then we have a full load, and it is good. -->
+        <do_if value="$maxCarryAmount gt 0" comment="$maxCarryAmount can be 0 if ship is considering impossible cargo; e.g. container ship considering ores">
+            <set_value name="$loctradevalue" exact="$loctradevalue * ($tradeAmount * 1.0 / $maxCarryAmount)" comment="Discourage non-full-load trades" />
+        </do_if>
+        <remove_value name="$tradeAmount" comment="Out-of-scope variable removal" />
+        <remove_value name="$maxCarryAmount" comment="Out-of-scope variable removal" />
+    </add>
+
+    <!-- SECTION END Fully Loaded -->
 </diff>
