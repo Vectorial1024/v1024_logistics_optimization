@@ -85,3 +85,32 @@ By having some (not all) station traders prioritize counter-trend trading, these
 
 ### Expected Performance Impact
 No performance impact expected since this is only a reordering of inevitable events.
+
+------
+
+## Fully Loaded Traders
+Mid-large (i.e., M, L, and XL) station traders dislike unused cargo space.
+
+Small (i.e. S) traders are excluded because they are small and fast:
+- Their small cargo size means they are very likely to run around with full load anyway
+- Their high speed makes up for potential low-usage cargo runs
+- Thus, their role is to fulfill small-volume trade deals which larger traders dislike
+
+### Technical Information
+The relevant parts of the vanilla station trader logic is roughly as follows:
+
+- When a trade offer is available, the trader calculates a trade value:
+  - `Value = Total cargo space used * Relative price margin`
+- The trade offer with the best trade value is selected, and the trader then makes the correct trade reservations
+
+The concern is that, there is nothing to stop trade offers that are large but bland to be selected over small but juicy offers.
+It is very undesirable to have mid-large traders running around with very low cargo space usage just because the relative margin is great.
+
+In vanilla, some of the ware categories with the greatest price ranges (i.e. `max price / min price`) are:
+- Drugs (~3.4x) (note: does not include Black Market additional markups, which would push range to ~5.5x)
+- Food, Water and Energy (~2.3x)
+- Refined Goods (~2.3x) (e.g. Refined Metals, Antimatter Cells, etc.)
+
+Mid-large traders dealing with these wares will likely be inefficient with their cargo space usage.
+
+This problem can be easily fixed by scaling down the trade value if the proposed trade offer uses very few cargo space.

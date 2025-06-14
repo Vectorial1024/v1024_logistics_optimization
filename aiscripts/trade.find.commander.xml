@@ -85,7 +85,7 @@
 
     <!-- SECTION END Counter Trend Trading -->
 
-    <!-- SECTION START Fully Loaded -->
+    <!-- SECTION START Fully Loaded Traders -->
 
     <!-- Make mid-large traders dislike trade deals that does not use the full cargo limit. -->
     <!-- This has a tiebreaking power between a juicy but small deal vs a bland but large deal: -->
@@ -121,5 +121,5 @@
         <remove_value name="$maxCarryAmount" comment="Out-of-scope variable removal" />
     </add>
 
-    <!-- SECTION END Fully Loaded -->
+    <!-- SECTION END Fully Loaded Traders -->
 </diff>
