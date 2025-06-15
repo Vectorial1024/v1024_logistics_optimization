@@ -103,8 +103,8 @@ The relevant parts of the vanilla station trader logic is roughly as follows:
   - `Trade value = Total cargo space used * Relative price margin`
 - The trade offer with the best trade value is selected, and the trader then makes the correct trade reservations
 
-The concern is that, there is nothing to stop trade offers that are large but bland to be selected over small but juicy offers.
-It is very undesirable to have mid-large traders running around with very low cargo space usage just because the relative margin is great.
+The concern is that, there is nothing to prevent traders from selecting juicy but small offers over large but bland offers.
+This causes mid-large traders to run around with very low cargo space usage just because the relative margin is great.
 
 In vanilla, some of the ware categories with the greatest price ranges (i.e. `max price / min price`) are:
 - Drugs (~3.4x) (note: does not include Black Market additional markups, which would push range to ~5.5x)
