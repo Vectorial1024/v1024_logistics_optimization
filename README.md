@@ -100,7 +100,7 @@ Small (i.e. S) traders are excluded because they are small and fast:
 The relevant parts of the vanilla station trader logic is roughly as follows:
 
 - When a trade offer is available, the trader calculates a trade value:
-  - `Value = Total cargo space used * Relative price margin`
+  - `Trade value = Total cargo space used * Relative price margin`
 - The trade offer with the best trade value is selected, and the trader then makes the correct trade reservations
 
 The concern is that, there is nothing to stop trade offers that are large but bland to be selected over small but juicy offers.
