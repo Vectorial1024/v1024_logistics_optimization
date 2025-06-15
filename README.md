@@ -20,6 +20,7 @@ This mod modifies the vanilla trading scripts to improve trader efficiency, and 
 The changes made by this mod can be summarised into several "bundled modules":
 - Faster Trade Matching: station traders idle less when searching/matching trade offers
 - Counter Trend Trading: some station traders reprioritize their work to stabilize station production
+- Full Load Delivery: M/L/XL station traders dislike unused cargo space
 - (more WIP...)
 
 Each such module will have its own README section below.
@@ -95,6 +96,8 @@ Small (i.e. S) traders are excluded because they are small and fast:
 - Their small cargo size means they are very likely to run around with full load anyway
 - Their high speed makes up for potential low-usage cargo runs
 - Thus, their role is to fulfill small-volume trade deals which larger traders dislike
+
+This module inherits the mod Fully Loaded for better management.
 
 ### Technical Information
 The relevant parts of the vanilla station trader logic is roughly as follows:
