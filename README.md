@@ -1,5 +1,5 @@
 # Logistics Optimization
-Various adjustments to improve trader efficiency in X4 Foundations
+Various adjustments to improve trader efficiency in X4 Foundations.
 
 - Our GitHub repo: https://github.com/Vectorial1024/v1024_logistics_optimization
   - Detailed changelog: https://github.com/Vectorial1024/v1024_logistics_optimization/blob/master/CHANGELOG.md
@@ -8,7 +8,9 @@ Various adjustments to improve trader efficiency in X4 Foundations
 - Our Steam Workshop link: https://steamcommunity.com/sharedfiles/filedetails/?id=3496466928
 - Our Nexus Mods link: https://www.nexusmods.com/x4foundations/mods/1719
 
-> Effective and efficient logistics; that's how simple it is!
+> Improve your station traders; improve your trade stations!
+
+(Actually, NPC station traders are also improved, but eyyy.)
 
 ------
 
