@@ -89,7 +89,7 @@ No performance impact expected since this is only a reordering of inevitable eve
 ------
 
 ## Full Load Delivery
-Mid-large (i.e., M, L, and XL) station traders dislike unused cargo space.
+Mid-large (i.e. M/L/XL) station traders dislike unused cargo space.
 
 Small (i.e. S) traders are excluded because they are small and fast:
 - Their small cargo size means they are very likely to run around with full load anyway
