@@ -197,5 +197,32 @@
         </do_if>
     </add>
 
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$buyoffers.count gt 0']/do_all" pos="prepend">
+        <!-- Preparing to look for trade deals of a given ware -->
+        <!-- Prepare opportunist flags -->
+        <set_value name="$additionalSectorsRemaining" exact="$opportunistRange" />
+    </add>
+
+    <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$buyoffers.count gt 0']/do_all/do_all/do_if[@value='@$selloffer.available and @$selloffer.offeramount.{this.assignedcontrolled} and $buyoffers.{$i}.offeramount.{this.assignedcontrolled}']">
+        <!-- Totally override vanilla "trade found" action -->
+        <do_if value="@$selloffer.available">
+            <!-- Sell offer was found/updated in this sector; or, sell offer was previously found elsewhere -->
+            <do_if value="$additionalSectorsRemaining == 0">
+                <!-- stop searching! -->
+                <break />
+            </do_if>
+            <!-- We may potentially have more here. -->
+            <set_value name="$additionalSectorsRemaining" exact="$additionalSectorsRemaining - 1" />
+        </do_if>
+    </replace>
+
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all/do_all[@exact='$buyspaces.count']" pos="after">
+        <!-- We are here because a trade is found OR we ran out of search space -->
+        <do_if value="@$selloffer.available and @$selloffer.offeramount.{this.assignedcontrolled} and $buyoffers.{$i}.offeramount.{this.assignedcontrolled}" comment="Vanilla logic here">
+            <set_value name="$buyoffer" exact="$buyoffers.{$i}" />
+            <resume label="finish" />
+        </do_if>
+    </add>
+
     <!-- SECTION END Patient Opportunists -->
 </diff>
