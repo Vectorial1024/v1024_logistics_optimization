@@ -72,7 +72,7 @@
     </add>
 
     <!-- Shortage state: try exporting first, to keep the cash flowing -->
-    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='not $skipshortage?']">
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if/do_if[@value='not $skipshortage?']">
         <do_if value="(not $doneCounterTrend?) and ($resources_shortage.count or $resources_critical.count)" chance="20" comment="Check whether we have done this before and may trigger">
             <!-- Haven't done counter-trend before; small chance to do counter-trend -->
             <!-- Don't handle shortages -->
