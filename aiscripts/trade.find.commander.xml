@@ -128,12 +128,12 @@
     <!-- Make all traders have a random chance to belay greedy-picking trade deals, allowing potentially better deals to be found next sector. -->
     <!-- Use trade/access restrictions to limit the traders! -->
 
-    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']" pos="prepend">
-        <!-- Determine if ship will trigger patient opportunist behavior -->
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/label[@name='start']" pos="after">
+        <!-- Determine opportunist parameters -->
         <!-- Key: try to look at the default behavior of the ship, to extract the existing trade range (in sectors) -->
         <set_value name="$shipDefaultOrder" exact="this.ship.defaultorder" />
         <set_value name="$maxTradeRange" exact="0" />
-        <do_if value="$shipDefaultOrder.id == 'TradeRoutine' or $shipDefaultId == 'TradeRoutine_Advanced'">
+        <do_if value="$shipDefaultOrder.id == 'TradeRoutine' or $shipDefaultOrder.id == 'TradeRoutine_Advanced'">
             <!-- The max-buy and max-sell should be the same... pick the largest one regardless -->
             <set_value name="$maxTradeRange" exact="[$shipDefaultOrder.$maxbuy, $shipDefaultOrder.$maxsell].max" />
         </do_if>
