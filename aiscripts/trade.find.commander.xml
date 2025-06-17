@@ -158,6 +158,11 @@
         <!-- Clean up! -->
         <remove_value name="$oppChanceList" />
         <remove_value name="$oppChanceLookupIndex" />
+
+        <!-- Then, apply the opportunist chance to the ship -->
+        <do_if chance="100 - $opportunistChance">
+            <set_value name="$opportunistRange" exact="0" comment="Complementary chance failed: ship will not do opportunist behavior" />
+        </do_if>
     </add>
 
     <!-- SECTION END Patient Opportunists -->
