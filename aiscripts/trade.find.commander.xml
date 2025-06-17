@@ -165,5 +165,37 @@
         </do_if>
     </add>
 
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']" pos="prepend">
+        <!-- Preparing to look for trade deals of a given ware -->
+        <!-- Prepare opportunist flags -->
+        <set_value name="$additionalSectorsRemaining" exact="$opportunistRange" />
+    </add>
+
+    <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']/do_all/do_if[@value='@$buyoffer.exists']">
+        <!-- Totally override vanilla "trade found" action -->
+        <do_if value="@$buyoffer.exists">
+            <!-- Buy offer was found/updated in this sector; or, buy offer was previously found elsewhere -->
+            <do_if value="$additionalSectorsRemaining == 0">
+                <!-- stop searching! -->
+                <break />
+            </do_if>
+            <!-- We may potentially have more here. -->
+            <set_value name="$additionalSectorsRemaining" exact="$additionalSectorsRemaining - 1" />
+        </do_if>
+    </replace>
+
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']/do_all" pos="after">
+        <!-- We are here because a trade is found OR we ran out of search space -->
+        <do_if value="@$buyoffer.exists" comment="Vanilla logic here">
+            <set_value name="$selloffer" exact="$selloffers.{$i}" />
+            <do_if value="not this.$sellpricetable?">
+                <set_value name="this.$sellpricetable" exact="table[]"/>
+            </do_if>
+            <set_value name="this.$sellpricetable.{$selloffer.ware}" exact="$selloffer.unitprice"/>
+            <debug_text text="'buy offer found! trading %s. relprice: %s'.[$selloffer.ware, $selloffer.relativeprice]" chance="$debugchance"/>
+            <resume label="finish" />
+        </do_if>
+    </add>
+
     <!-- SECTION END Patient Opportunists -->
 </diff>
