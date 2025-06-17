@@ -119,3 +119,30 @@ In vanilla, some of the ware categories with the greatest price ranges (i.e. `ma
 Mid-large traders dealing with these wares will likely be inefficient with their cargo space usage.
 
 This problem can be easily fixed by scaling down the trade value if the proposed trade offer uses very few cargo space.
+
+------
+
+## Patient Opportunists
+Station traders may randomly extend their trade search to hopefully find better trades; exact chances depend on the ship class and the station trade range.
+
+The chances and effects of search extension is documented below:
+
+(table)
+
+### Technical Information
+The relevant parts of the vanilla station trader logic is roughly as follows:
+- Select a ware from commander station to find matching external trade offers
+- Then, iterate through the in-range sectors list, closest sector first:
+  - Then, iterate through the external trade offers in the sector:
+    - Find and select the best trade offer using the trade value formula mentioned above
+
+The problem is that, this is a greedy algorithm. With this greedy algorithm, station traders will always buy out closer trade offers,
+and will generally refuse to consider cheaper trade deals that are slightly further away.
+
+This can be easily alleviated by telling station traders to find trade offers from several sectors, *then* find the best offer among them.
+
+A larger trade range warrants a more extended search, but to avoid potential supply failure because everyone is all in transit and unavailable,
+this search extension does not trigger every time.
+
+### Expected Performance Impact
+Low performance impact expected. While extended trade searches is an expensive operation, it is mostly limited by the "1 thinking trader only" rule as described above.
