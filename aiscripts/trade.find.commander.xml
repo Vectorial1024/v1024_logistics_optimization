@@ -122,4 +122,43 @@
     </add>
 
     <!-- SECTION END Full Load Delivery -->
+
+    <!-- SECTION START Patient Opportunists -->
+
+    <!-- Make all traders have a random chance to belay greedy-picking trade deals, allowing potentially better deals to be found next sector. -->
+    <!-- Use trade/access restrictions to limit the traders! -->
+
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']" pos="prepend">
+        <!-- Determine if ship will trigger patient opportunist behavior -->
+        <!-- Key: try to look at the default behavior of the ship, to extract the existing trade range (in sectors) -->
+        <set_value name="$shipDefaultOrder" exact="this.ship.defaultorder" />
+        <set_value name="$maxTradeRange" exact="0" />
+        <do_if value="$shipDefaultOrder.id == 'TradeRoutine' or $shipDefaultId == 'TradeRoutine_Advanced'">
+            <!-- The max-buy and max-sell should be the same... pick the largest one regardless -->
+            <set_value name="$maxTradeRange" exact="[$shipDefaultOrder.$maxbuy, $shipDefaultOrder.$maxsell].max" />
+        </do_if>
+
+        <!-- Then, determine the "additional sectors to check" -->
+        <!-- This is dependent on the ship class and the trade range -->
+        <set_value name="$opportunistRange" exact="0" />
+        <set_value name="$opportunistChance" exact="0" />
+        <do_if value="this.ship.isclass.[class.ship_s, class.ship_m]" comment="Light ships are more suitable to go far">
+            <set_value name="$opportunistRange" exact="[$maxTradeRange, 5].min" />
+        </do_if>
+        <do_else comment="Heavy ships are less suitable to go far">
+            <set_value name="$opportunistRange" exact="(([$maxTradeRange, 5].min) + 1) / 2" comment="012345 becomes 011223" />
+        </do_else>
+        <set_value name="$oppChanceList" exact="[0, 10, 20, 28, 35, 40]" />
+        <do_if value="this.ship.isclass.[class.ship_s]" comment="S ships are usually unwilling to go far">
+            <set_value name="$oppChanceList" exact="[0, 5, 10, 14, 17, 20]" />
+        </do_if>
+        <set_value name="$oppChanceLookupIndex" exact="[$maxTradeRange, 5].min + 1" comment="MD lists index start at 1" />
+        <set_value name="$opportunistChance" exact="$oppChanceList.{$oppChanceLookupIndex}" />
+
+        <!-- Clean up! -->
+        <remove_value name="$oppChanceList" />
+        <remove_value name="$oppChanceLookupIndex" />
+    </add>
+
+    <!-- SECTION END Patient Opportunists -->
 </diff>
