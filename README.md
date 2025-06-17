@@ -127,7 +127,24 @@ Station traders may randomly extend their trade search to hopefully find better 
 
 The chances and effects of search extension is documented below:
 
-(table)
+(Each cell contains `(chance of extended search, number of additional sectors to search if extended search)`)
+
+| Trade range | S-Class | M-Class | L-Class | XL-Class |
+| -------- | ------- | ------- | ------- | ------- | 
+| 0 Sectors | (0%, +0) | (0%, +0) | (0%, +0) | (0%, +0) |
+| 1 Sector | (5%, +1) | (10%, +1) | (10%, +1) | (10%, +1) |
+| 2 Sectors | (10%, +2) | (20%, +2) | (20%, +1) | (20%, +1) |
+| 3 Sectors | (14%, +3) | (28%, +3) | (28%, +2) | (28%, +2) |
+| 4 Sectors | (17%, +4) | (35%, +4) | (35%, +2) | (35%, +2) |
+| 5+ Sectors | (20%, +5) | (40%, +5) | (40%, +3) | (40%, +3) |
+
+You may observe the following:
+- L/XL traders do not want to go too far away because they are usually slow
+- S traders are less likely to extend searches because of their very limiting cargo hold
+
+With this, the trader's ship class becomes important. Ideally, most traders should be M traders, with a bit of S/L traders to handle niche cases.
+
+This interacts with other modules in this mod, e.g. L/XL traders will want to quickly find trade offers among several sectors that can fill up its cargo hold.
 
 ### Technical Information
 The relevant parts of the vanilla station trader logic is roughly as follows:
