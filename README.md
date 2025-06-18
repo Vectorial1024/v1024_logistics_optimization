@@ -23,6 +23,7 @@ The changes made by this mod can be summarised into several "bundled modules":
 - Faster Trade Matching: station traders idle less when searching/matching trade offers
 - Counter Trend Trading: some station traders reprioritize their work to stabilize station production
 - Full Load Delivery: M/L/XL station traders dislike unused cargo space
+- Patient Opportunists: station traders randomly search further for trades
 - (more WIP...)
 
 Each such module will have its own README section below.
