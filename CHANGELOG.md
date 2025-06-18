@@ -1,7 +1,7 @@
 # Change log
 This is a detailed changelog of Logistics Optimization.
 
-## Version 1.03
+## Version 1.03 (2025-06-18)
 An update.
 - New module: "Patient Opportunists" (see README for more details)
 - Fixed #2 (XML patching problem)
