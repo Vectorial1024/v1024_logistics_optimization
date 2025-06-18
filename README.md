@@ -143,7 +143,7 @@ The chances and effects of search extension is documented below:
 
 You may observe the following:
 - L/XL traders do not want to go too far away because they are usually slow
-- S traders are less likely to extend searches because of their very limiting cargo hold
+- S traders are less likely to extend searches because of their very limiting cargo hold and their general fragility
 
 With this, the trader's ship class becomes important. Ideally, most traders should be M traders, with a bit of S/L traders to handle niche cases.
 
