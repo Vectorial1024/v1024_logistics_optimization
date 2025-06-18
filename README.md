@@ -120,6 +120,9 @@ Mid-large traders dealing with these wares will likely be inefficient with their
 
 This problem can be easily fixed by scaling down the trade value if the proposed trade offer uses very few cargo space.
 
+### Expected Performance Impact
+No performance impact expected since this is just a change of calculation formula.
+
 ------
 
 ## Patient Opportunists
