@@ -3,6 +3,20 @@
 <!-- Various code modifications to improve trader logic; more details please see README. -->
 
 <diff>
+    <!-- SECTION START (Longer Semaphore) -->
+    
+    <!-- Because ships now take longer to find trades, we will spread out the lock-waiting to decrease performance impact. -->
+    <!-- This is not exactly a module because it does nothing productive, just some smoothing attempt. -->
+    <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_while/wait">
+        <!-- Sleep longer per round, so that trade calculation is more spread out -->
+        <!-- original has min=3,max=11,since=6 -->
+        <!-- 30 rounds means waiting at most (1.5mins - 5.5mins) -->
+        <!-- these values would make it (2.5mins - 8.5mins) -->
+        <wait min="5s" max="17s" sinceversion="6" />
+    </replace>
+
+    <!-- SECTION END (Longer Semaphore) -->
+
     <!-- SECTION START Faster Trade Matching -->
 
     <!-- Station export wares: wait faster! -->
