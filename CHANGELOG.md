@@ -1,6 +1,12 @@
 # Change log
 This is a detailed changelog of Logistics Optimization.
 
+## Version 1.04 (2025-06-25)
+An update. In response to complaints about performance loss, the numbers are adjusted.
+- Slightly increased offer iteration time (still faster than vanilla)
+- Nerfed chance to check additional sectors (from `progressive-40%` to `progressive-30%`)
+- Station traders now wait longer for their turn to search, so to spread out the calculation even more
+
 ## Version 1.03 (2025-06-18)
 An update.
 - New module: "Patient Opportunists" (see README for more details)
