@@ -24,12 +24,12 @@
     <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']/do_all/wait">
         <!-- Reduce per-space waiting time -->
         <!-- original has min=1,max=3,since=2 -->
-        <wait min="500ms" max="1.5s" sinceversion="2" />
+        <wait min="750ms" max="2s" sinceversion="2" />
     </replace>
     <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']/wait">
         <!-- Reduce per-ware waiting time -->
         <!-- original has min=1,max=3,since=2 -->
-        <wait min="500ms" max="1.5s" sinceversion="2" />
+        <wait min="750ms" max="2s" sinceversion="2" />
     </replace>
 
     <!-- Station import wares; wait faster! -->
@@ -37,12 +37,12 @@
     <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$buyoffers.count gt 0']/do_all[@exact='$buyoffers.count']/do_all[@exact='$buyspaces.count']/wait">
         <!-- Reduce per-space waiting time -->
         <!-- original has min=0.5,max=4,since=9 -->
-        <wait min="250ms" max="2s" sinceversion="9" />
+        <wait min="500ms" max="2.5s" sinceversion="9" />
     </replace>
     <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$buyoffers.count gt 0']/do_all[@exact='$buyoffers.count']/wait">
         <!-- Reduce per-ware waiting time -->
         <!-- original has min=4,max=10,since=9 -->
-        <wait min="1.5s" max="4.5s" sinceversion="9" />
+        <wait min="2s" max="5s" sinceversion="9" />
     </replace>
 
     <!-- SECTION END Faster Trade Matching -->
