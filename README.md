@@ -136,11 +136,11 @@ The chances and effects of search extension is documented below:
 | Trade range | S-Class | M-Class | L-Class | XL-Class |
 | -------- | ------- | ------- | ------- | ------- | 
 | 0 Sectors | (0%, +0) | (0%, +0) | (0%, +0) | (0%, +0) |
-| 1 Sector | (5%, +1) | (10%, +1) | (10%, +1) | (10%, +1) |
-| 2 Sectors | (10%, +2) | (20%, +2) | (20%, +1) | (20%, +1) |
-| 3 Sectors | (14%, +3) | (28%, +3) | (28%, +2) | (28%, +2) |
-| 4 Sectors | (17%, +4) | (35%, +4) | (35%, +2) | (35%, +2) |
-| 5+ Sectors | (20%, +5) | (40%, +5) | (40%, +3) | (40%, +3) |
+| 1 Sector | (4%, +1) | (8%, +1) | (8%, +1) | (8%, +1) |
+| 2 Sectors | (7%, +2) | (15%, +2) | (15%, +1) | (15%, +1) |
+| 3 Sectors | (10%, +3) | (21%, +3) | (21%, +2) | (21%, +2) |
+| 4 Sectors | (13%, +4) | (26%, +4) | (26%, +2) | (26%, +2) |
+| 5+ Sectors | (15%, +5) | (30%, +5) | (30%, +3) | (30%, +3) |
 
 You may observe the following:
 - L/XL traders do not want to go too far away because they are usually slow
