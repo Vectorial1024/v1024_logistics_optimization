@@ -162,9 +162,9 @@
         <do_else comment="Heavy ships are less suitable to go far">
             <set_value name="$opportunistRange" exact="(([$maxTradeRange, 5].min) + 1) / 2" comment="012345 becomes 011223" />
         </do_else>
-        <set_value name="$oppChanceList" exact="[0, 10, 20, 28, 35, 40]" />
+        <set_value name="$oppChanceList" exact="[0, 8, 15, 21, 26, 30]" />
         <do_if value="this.ship.isclass.[class.ship_s]" comment="S ships are usually unwilling to go far">
-            <set_value name="$oppChanceList" exact="[0, 5, 10, 14, 17, 20]" />
+            <set_value name="$oppChanceList" exact="[0, 4, 7, 10, 13, 15]" />
         </do_if>
         <set_value name="$oppChanceLookupIndex" exact="[$maxTradeRange, 5].min + 1" comment="MD lists index start at 1" />
         <set_value name="$opportunistChance" exact="$oppChanceList.{$oppChanceLookupIndex}" />
