@@ -59,6 +59,18 @@ The concern is that if the ware list is long and the sector coverage is wide (e.
 
 As such, this mod reduces the idling time of station traders.
 
+### On the "hidden timer" of the "one-at-a-time" rule
+There is an undocumented timer that station traders use to wait for their chance to be the "one-at-a-time" trader to find trades:
+- Station traders try to "acquire the lock" (managed by the station) when they start their work
+  - If successful, then the trader stops waiting and starts finding trades
+  - When trade finding completes, the trader frees the lock
+- Unsuccessful locking will put the trader to a 30-round random-sleep
+  - Vanilla numbers means a maximum random(1.5mins, 5.5mins) of waiting time here
+- If the timer runs out and still no locks acquired, the now "bored" trader goes YOLO to find trades regardless
+  - This may cause unrecoverable general lag!
+
+Because of the "Patient Opportunists" module below, this timer has been increased to spread out the calculation even more.
+
 ### Expected Performance Impact
 In theory, reducing idling time may momentarily decrease performance (aka "cause lag spikes") when station traders are finding trades.
 
