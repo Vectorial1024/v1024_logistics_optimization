@@ -168,6 +168,19 @@
         </do_if>
         <set_value name="$oppChanceLookupIndex" exact="[$maxTradeRange, 5].min + 1" comment="MD lists index start at 1" />
         <set_value name="$opportunistChance" exact="$oppChanceList.{$oppChanceLookupIndex}" />
+        <!-- Special control: if the ware is a trade ware, strongly encourage look-ahead, but control the look-ahead range -->
+        <set_value name="$opportunistRangeTrading" exact="0" />
+        <set_value name="$opportunistChanceTrading" exact="0" />
+        <do_if value="this.ship.isclass.[class.ship_s, class.ship_m]" comment="Light ships are more suitable to go far">
+            <set_value name="$opportunistRangeTrading" exact="(([$maxTradeRange, 5].min) + 1) / 2" comment="012345 becomes 011223" />
+        </do_if>
+        <do_else comment="Heavy ships are less suitable to go far">
+            <set_value name="$opportunistRangeTrading" exact="if $maxTradeRange ge 3 then 1 else 0" comment="012345 becomes 000111" />
+        </do_else>
+        <set_value name="$opportunistChanceTrading" exact="100" />
+        <do_if value="this.ship.isclass.[class.ship_s]" comment="S ships are usually unwilling to go far">
+            <set_value name="$opportunistChanceTrading" exact="50" />
+        </do_if>
 
         <!-- Clean up! -->
         <remove_value name="$oppChanceList" />
@@ -177,12 +190,21 @@
         <do_if value="true" chance="100 - $opportunistChance">
             <set_value name="$opportunistRange" exact="0" comment="Complementary chance failed: ship will not do opportunist behavior" />
         </do_if>
+        <do_if value="true" chance="100 - $opportunistChanceTrading">
+            <set_value name="$opportunistRangeTrading" exact="0" comment="Complementary chance failed: ship will not do opportunist behavior" />
+        </do_if>
     </add>
 
     <add sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']" pos="prepend">
         <!-- Preparing to look for trade deals of a given ware -->
         <!-- Prepare opportunist flags -->
         <set_value name="$additionalSectorsRemaining" exact="$opportunistRange" />
+        <set_value name="$tempWare" exact="@$selloffers.{$i}.ware" />
+        <do_if value="@$tempWare and $homebase.tradewares.list.indexof.{$tempWare}" comment="Trade offer is valid, and is a trade ware of this station">
+            <!-- Use different look-ahead ranges if it is a trading ware -->
+            <set_value name="$additionalSectorsRemaining" exact="$opportunistRangeTrading" />
+        </do_if>
+        <remove_value name="$tempWare" />
     </add>
 
     <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']/do_all/do_if[@value='@$buyoffer.exists']">
