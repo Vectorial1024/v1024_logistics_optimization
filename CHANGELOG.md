@@ -1,6 +1,11 @@
 # Change log
 This is a detailed changelog of Logistics Optimization.
 
+## Version 1.05 (???)
+An update.
+- Updated "Patient Opportunists"
+  - Improvements to trade wares trade matching
+
 ## Version 1.04 (2025-06-25)
 An update. In response to complaints about performance loss, the numbers are adjusted.
 - Slightly increased offer iteration time (still faster than vanilla)
