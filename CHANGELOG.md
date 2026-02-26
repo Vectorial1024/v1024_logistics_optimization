@@ -1,10 +1,10 @@
 # Change log
 This is a detailed changelog of Logistics Optimization.
 
-## Version 1.05 (???)
+## Version 1.05 (2026-02-27)
 An update.
 - Updated "Patient Opportunists"
-  - Improvements to trade wares trade matching
+  - Improvements to trade wares (a trade ware is a ware that the station neither produces nor consumes)
 
 ## Version 1.04 (2025-06-25)
 An update. In response to complaints about performance loss, the numbers are adjusted.

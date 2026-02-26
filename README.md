@@ -139,7 +139,7 @@ No performance impact expected since this is just a change of calculation formul
 ------
 
 ## Patient Opportunists
-Station traders may randomly extend their trade search to hopefully find better trades; exact chances depend on the ship class and the station trade range.
+Station traders may randomly extend their trade search to hopefully find better trades; exact chances depend on the ship class, the station trade range, and whether the ware is a trade ware. (A trade ware is a ware that the station neither produces nor consumes.)
 
 The chances and effects of search extension is documented below:
 
@@ -153,6 +153,17 @@ The chances and effects of search extension is documented below:
 | 3 Sectors | (10%, +3) | (21%, +3) | (21%, +2) | (21%, +2) |
 | 4 Sectors | (13%, +4) | (26%, +4) | (26%, +2) | (26%, +2) |
 | 5+ Sectors | (15%, +5) | (30%, +5) | (30%, +3) | (30%, +3) |
+
+However, when the ware being traded is a trade ware, the chances and effects becomes the following:
+
+| Trade range | S-Class | M-Class | L-Class | XL-Class |
+| -------- | ------- | ------- | ------- | ------- | 
+| 0 Sectors | (0%, +0) | (0%, +0) | (0%, +0) | (0%, +0) |
+| 1 Sector | (50%, +1) | (100%, +1) | (0%, +0) | (0%, +0) |
+| 2 Sectors | (50%, +1) | (100%, +1) | (0%, +0) | (0%, +0) |
+| 3 Sectors | (50%, +2) | (100%, +2) | (100%, +1) | (100%, +1) |
+| 4 Sectors | (50%, +2) | (100%, +2) | (100%, +1) | (100%, +1) |
+| 5+ Sectors | (50%, +3) | (100%, +3) | (100%, +1) | (100%, +1) |
 
 You may observe the following:
 - L/XL traders do not want to go too far away because they are usually slow
