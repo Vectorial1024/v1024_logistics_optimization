@@ -44,6 +44,13 @@ While there are other custom trading scripts to help with these logistics proble
 
 It was eventually discovered/determined that the vanilla station trading logic can be improved, which motivated the creation of this mod.
 
+## Some Hints on Vanilla Logistics
+From closely studying the vanilla trading script, I have the following hints to give regarding general station logistics:
+
+- Stations are expected to actively supply other stations; allocate your traders to focus on exports and selling stuff
+- Try to limit the number of buy/sell wares at your stations; too many trade offers can cause long trade planning times
+- Be aware of the "waiting for trades" timers (see Faster Trade Matching below); actual performance of trade ships may vary from theory
+
 ------
 
 ## Faster Trade Matching
