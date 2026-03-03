@@ -11,8 +11,8 @@
         <!-- Sleep longer per round, so that trade calculation is more spread out -->
         <!-- original has min=3,max=11,since=6 -->
         <!-- 30 rounds means waiting at most (1.5mins - 5.5mins) -->
-        <!-- these values would make it (2.5mins - 8.5mins) -->
-        <wait min="5s" max="17s" sinceversion="6" />
+        <!-- these values would make it (1mins - 8.5mins) -->
+        <wait min="2s" max="17s" sinceversion="6" />
     </replace>
 
     <!-- SECTION END (Longer Semaphore) -->
