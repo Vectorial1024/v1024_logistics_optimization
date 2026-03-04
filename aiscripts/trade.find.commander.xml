@@ -21,7 +21,7 @@
 
     <!-- Semaphore bypass -->
     <!-- If ship has trading software, make it have chance to bypass the semaphore. -->
-    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/remove_value[@name='$loopcount']" pos="after">
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/remove_value[@name='$commanderstation']" pos="after">
         <label name="after_semaphore"/>
     </add>
     <add sel="/aiscript[@name='trade.find.commander']/attention/actions/set_value[@name='$startwait']" pos="before">
