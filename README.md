@@ -66,6 +66,16 @@ The concern is that if the ware list is long and the sector coverage is wide (e.
 
 As such, this mod reduces the idling time of station traders.
 
+In addition, when there are a lot of freight that needs to be moved (i.e. a lot of assigned traders), then traders may also spend too long waiting for their turn to find trades.
+
+As such, this mod also instructs ships with a trading computer installed to randomly skip this phase. The chances are as follows:
+
+| Software | Bypass Chance | Notes |
+| -------- | ------- | ------- |
+| Trading Computer Extension Mk1 | 33% |  |
+| Trading Computer Extension Mk2 | 66% | Unused in-game |
+| Trading Computer Extension Mk3 | 99% | Unused in-game |
+
 ### On the "hidden timer" of the "one-at-a-time" rule
 There is an undocumented timer that station traders use to wait for their chance to be the "one-at-a-time" trader to find trades:
 - Station traders try to "acquire the lock" (managed by the station) when they start their work
