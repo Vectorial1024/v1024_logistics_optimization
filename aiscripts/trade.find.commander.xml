@@ -27,7 +27,13 @@
     <add sel="/aiscript[@name='trade.find.commander']/attention/actions/set_value[@name='$startwait']" pos="before">
         <set_value name="$skipSemaphoreChance" exact="0" />
         <do_if value="this.assignedcontrolled.software.installed.{ware.software_trademk1}.exists">
-            <set_value name="$skipSemaphoreChance" exact="100" />
+            <set_value name="$skipSemaphoreChance" exact="33" />
+        </do_if>
+        <do_if value="this.assignedcontrolled.software.installed.{ware.software_trademk2}.exists">
+            <set_value name="$skipSemaphoreChance" exact="66" />
+        </do_if>
+        <do_if value="this.assignedcontrolled.software.installed.{ware.software_trademk3}.exists">
+            <set_value name="$skipSemaphoreChance" exact="99" />
         </do_if>
 
         <do_if value="true" chance="$skipSemaphoreChance">
