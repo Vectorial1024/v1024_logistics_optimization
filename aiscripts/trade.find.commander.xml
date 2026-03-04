@@ -19,6 +19,25 @@
 
     <!-- SECTION START Faster Trade Matching -->
 
+    <!-- Semaphore bypass -->
+    <!-- If ship has trading software, make it have chance to bypass the semaphore. -->
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/remove_value[@name='$loopcount']" pos="after">
+        <label name="after_semaphore"/>
+    </add>
+    <add sel="/aiscript[@name='trade.find.commander']/attention/actions/set_value[@name='$startwait']" pos="before">
+        <set_value name="$skipSemaphoreChance" exact="0" />
+        <do_if value="this.assignedcontrolled.software.installed.{ware.software_trademk1}.exists">
+            <set_value name="$skipSemaphoreChance" exact="100" />
+        </do_if>
+
+        <do_if chance="100 - $skipSemaphoreChance">
+            <show_help custom="'skipping semaphore'" pos="1" duration="4s" chance="100" />
+            <remove_value name="$skipSemaphoreChance" />
+            <resume label="after_semaphore" />
+        </do_if>
+        <remove_value name="$skipSemaphoreChance" />
+    </add>
+
     <!-- Station export wares: wait faster! -->
     <!-- Iterate per-ware, then per-space -->
     <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/do_if[@value='$selloffers.count gt 0']/do_all[@exact='$selloffers.count']/do_all/wait">
