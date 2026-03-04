@@ -31,7 +31,8 @@
         </do_if>
 
         <do_if value="true" chance="$skipSemaphoreChance">
-            <show_help custom="'skipping semaphore'" pos="1" duration="4s" chance="100" />
+            <show_help custom="'skipping semaphore'" pos="1" duration="4s" chance="0" />
+            <debug_text text="'Logistics Optimization: ship will not wait for station semaphore because it has a trade computer.'" chance="$debugchance"/>
             <remove_value name="$skipSemaphoreChance" />
             <resume label="after_semaphore" />
         </do_if>
