@@ -30,7 +30,7 @@
             <set_value name="$skipSemaphoreChance" exact="100" />
         </do_if>
 
-        <do_if chance="100 - $skipSemaphoreChance">
+        <do_if chance="$skipSemaphoreChance">
             <show_help custom="'skipping semaphore'" pos="1" duration="4s" chance="100" />
             <remove_value name="$skipSemaphoreChance" />
             <resume label="after_semaphore" />
