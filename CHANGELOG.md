@@ -1,6 +1,12 @@
 # Change log
 This is a detailed changelog of Logistics Optimization.
 
+# Version 1.06 (2026-03-09)
+An update.
+- Updated "Faster Trade Matching"
+  - Improvements to "wait for station" intervals
+  - Trade ships may randomly bypass "wait for station" if it has a Trading Computer
+
 ## Version 1.05 (2026-02-27)
 An update.
 - Updated "Patient Opportunists"
