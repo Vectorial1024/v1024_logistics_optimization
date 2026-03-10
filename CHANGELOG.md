@@ -6,6 +6,7 @@ An update.
 - Updated "Faster Trade Matching"
   - Improvements to "wait for station" intervals
   - Trade ships may randomly bypass "wait for station" if it has a Trading Computer
+    - You may now throw more ships at logistics problems in some cases
 
 ## Version 1.05 (2026-02-27)
 An update.
