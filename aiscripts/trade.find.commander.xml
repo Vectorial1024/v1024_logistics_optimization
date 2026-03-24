@@ -40,6 +40,8 @@
             <show_help custom="'skipping semaphore'" pos="1" duration="4s" chance="0" />
             <debug_text text="'Logistics Optimization: ship will not wait for station semaphore because it has a trade computer.'" chance="$debugchance"/>
             <remove_value name="$skipSemaphoreChance" />
+            <!-- We will still random-sleep here to avoid stampedes -->
+            <wait min="3s" max="11s" />
             <resume label="after_semaphore" />
         </do_if>
         <remove_value name="$skipSemaphoreChance" />
