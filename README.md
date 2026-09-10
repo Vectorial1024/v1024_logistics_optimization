@@ -61,6 +61,7 @@ The relevant parts of the vanilla station trader logic is roughly as follows:
 - Station traders find trades one-at-a-time to prevent trade stampeding
 - When a station trader is finding trades, it iterates through the tradeable ware list first, and then the trade partner sector
 - There are some idling after completing the search on the ware/sector
+- There is some waiting after a station trader has failed to find trades (has offer but no match)
 
 The concern is that if the ware list is long and the sector coverage is wide (e.g. regional trade hub), then traders may spend too long trying to confirm a trade run.
 
