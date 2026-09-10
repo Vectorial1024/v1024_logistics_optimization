@@ -73,6 +73,15 @@
         <wait min="3s" max="7s" sinceversion="9" />
     </replace>
 
+    <!-- No-trade-found cooldown; wait faster! -->
+    <!-- original has Min=30,Max=90 -->
+    <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/run_script/param[@name='Min']">
+        <param name="Min" value="15s" />
+    </replace>
+    <replace sel="/aiscript[@name='trade.find.commander']/attention/actions/run_script/param[@name='Max']">
+        <param name="Min" value="30s" />
+    </replace>
+
     <!-- SECTION END Faster Trade Matching -->
 
     <!-- SECTION START Counter Trend Trading -->
