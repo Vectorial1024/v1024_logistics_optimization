@@ -1,7 +1,17 @@
 # Change log
 This is a detailed changelog of Logistics Optimization.
 
-# Version 1.06 (2026-03-09)
+## Version 1.08 (2026-09-10)
+An update.
+- Updated "Faster Trade Matching"
+  - Reduced duration of "no trades found" fly-idle time; hopefully results in less ships used
+
+## Version 1.07 (2026-06-24)
+An update.
+- Updated "Faster Trade Matching"
+  - Adjusted "wait for station" intervals; try to reduce performance impact
+
+## Version 1.06 (2026-03-09)
 An update.
 - Updated "Faster Trade Matching"
   - Improvements to "wait for station" intervals
